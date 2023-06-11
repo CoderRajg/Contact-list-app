@@ -3,13 +3,17 @@ import { Button, TextField, FormGroup } from "@material-ui/core";
 
 const ContactForm = ({
   name,
+  email,
   handleNameChange,
   handleEmailChange,
   nameError,
-  email,
   emailError,
   addContact,
 }) => {
+  const handleAddContact = (e) => {
+    addContact(e);
+    document.getElementById("name").value = ""; // Clear the name input field
+  };
   return (
     <form>
       <FormGroup>
@@ -38,7 +42,8 @@ const ContactForm = ({
       </FormGroup>
       <FormGroup>
         <Button
-          onClick={addContact}
+          // onClick={(e)=>addContact(e)}
+          onClick={handleAddContact}
           variant="contained"
           color="primary"
           className="add-button"

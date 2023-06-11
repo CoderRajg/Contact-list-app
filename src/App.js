@@ -5,7 +5,7 @@ import { Grid } from "@material-ui/core";
 import { useState, useEffect } from "react";
 
 const App = () => {
-  const [contacts, setcontacts] = useState([]);
+  const [contacts, setcontacts] = useState([{ name: "", email: "" }]);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   // const [dateCreated, setdateCreated] = useState("");
@@ -38,21 +38,6 @@ const App = () => {
     setemail(e.target.value);
   };
 
-  // const addContact = (e) => {
-  //   e.preventDefault();
-  //   if (name === "" && email === "") return;
-  //   contacts.push({
-  //     name: name,
-  //     email: email,
-  //   });
-
-  //   setnameError(name);
-  //   setemailError(email);
-
-  //   setcontacts(contacts);
-  //   setname("");
-  //   setemail("");
-  // };
   const addContact = (e) => {
     e.preventDefault();
     if (name === "" && email === "") return;
@@ -65,6 +50,9 @@ const App = () => {
     setcontacts([...contacts, newContact]);
     setname("");
     setemail("");
+
+    // setnameError(false);
+    // setemailError(false);
   };
 
   const deleteContact = (email) => {
@@ -74,12 +62,23 @@ const App = () => {
     setcontacts(filteredContacts);
   };
 
+  // const editContact = (email, name) => {
+  //   const edited = contacts.filter((contact) => {
+  //     return contact.email === email || contact.name === name;
+  //   });
+  //   setname(edited[0].name);
+  //   // setname(name);
+  //   setemail(email);
+  // };
   const editContact = (email, name) => {
-    const edited = contacts.filter((contact) => {
-      return contact.email === email || contact.name === name;
-    });
-    setname(edited[0].name);
-    setemail(email);
+    const editedContact = contacts.find(
+      (contact) => contact.email === email && contact.name === name
+    );
+  
+    if (editedContact) {
+      setname(editedContact.name);
+      setemail(editedContact.email);
+    }
   };
   return (
     <Grid className="App" mx="auto" container justifyContent="center">
