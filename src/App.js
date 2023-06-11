@@ -58,25 +58,25 @@ const App = () => {
     setcontacts(filteredContacts);
   };
 
-  // const editContact = (email, name) => {
-  //   const edited = contacts.filter((contact) => {
-  //     return contact.email === email || contact.name === name;
-  //   });
-  //   setName(edited[0].name);
-  //   // setName(name);
-  //   setemail(email);
-  // };
   const editContact = (email, name) => {
-    const editedContact = contacts.find(
-      (contact) => contact.email === email && contact.name === name
-    );
-    
-    if (editedContact) {
-      setName(editedContact.name);
-      console.log(editedContact.name);
-      setemail(editedContact.email);
-    }
+    const edited = contacts.filter((contact) => {
+      return contact.email === email || contact.name === name;
+    });
+    setName(edited[0].name);
+    // setName(name);
+    setemail(email);
   };
+  // const editContact = (email, name) => {
+  //   const editedContact = contacts.find(
+  //     (contact) => contact.email === email && contact.name === name
+  //   );
+    
+  //   if (editedContact) {
+  //     setName(editedContact.name);
+  //     console.log(editedContact.name);
+  //     setemail(editedContact.email);
+  //   }
+  // };
   return (
     <Grid className="App" mx="auto" container justifyContent="center">
       <Grid item xs={12} sm={12} md={6}>
