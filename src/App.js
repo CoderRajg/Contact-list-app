@@ -5,9 +5,9 @@ import { Grid } from "@material-ui/core";
 import { useState, useEffect } from "react";
 
 const App = () => {
-  const [contacts, setcontacts] = useState([{ name: "", email: "" }]);
-  const [name, setName] = useState("");
-  const [email, setemail] = useState("");
+  const [contacts, setcontacts] = useState([{ name: '', email: '' }]);
+  const [name, setName] = useState('');
+  const [email, setemail] = useState('');
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -70,9 +70,10 @@ const App = () => {
     const editedContact = contacts.find(
       (contact) => contact.email === email && contact.name === name
     );
-  
+    
     if (editedContact) {
       setName(editedContact.name);
+      console.log(editedContact.name);
       setemail(editedContact.email);
     }
   };
@@ -84,7 +85,7 @@ const App = () => {
           addContact={addContact}
           handleNameChange={handleNameChange}
           handleEmailChange={handleEmailChange}
-          formInputName={name}
+          name={name}
           email={email}
           editContact={editContact}
           deleteContact={deleteContact}

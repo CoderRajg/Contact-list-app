@@ -28,10 +28,10 @@ const ContactForm = ({
       </FormGroup>
       <FormGroup>
         <TextField
-          label="Email/Phone"
           type="email"
           name="email"
           margin="normal"
+          label="Email/Phone"
           value={email}
           onChange={(e)=>handleEmailChange(e)}
         />
