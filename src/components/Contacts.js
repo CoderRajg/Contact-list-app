@@ -8,8 +8,6 @@ const Contacts = ({
   handleEmailChange,
   name,
   email,
-  nameError,
-  emailError,
   addContact,
   contacts,
   editContact,
@@ -25,8 +23,6 @@ const Contacts = ({
           handleEmailChange={handleEmailChange}
           name={name}
           email={email}
-          nameError={nameError}
-          emailError={emailError}
         />
       </Grid>
       <Grid item>

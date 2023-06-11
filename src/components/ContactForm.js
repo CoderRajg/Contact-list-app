@@ -6,8 +6,6 @@ const ContactForm = ({
   email,
   handleNameChange,
   handleEmailChange,
-  nameError,
-  emailError,
   addContact,
 }) => {
   const handleAddContact = (e) => {
@@ -27,7 +25,6 @@ const ContactForm = ({
           onChange={(e)=>handleNameChange(e)}
           required
         />
-        {nameError ? "error" : ""}
       </FormGroup>
       <FormGroup>
         <TextField
@@ -38,7 +35,8 @@ const ContactForm = ({
           value={email}
           onChange={(e)=>handleEmailChange(e)}
         />
-        {emailError ? "The email already exists!" : ""}
+        {/* {emailError ? "The email already exists!" : ""} */}
+        {/* {email} */}
       </FormGroup>
       <FormGroup>
         <Button

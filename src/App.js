@@ -6,12 +6,8 @@ import { useState, useEffect } from "react";
 
 const App = () => {
   const [contacts, setcontacts] = useState([{ name: "", email: "" }]);
-  const [name, setname] = useState("");
+  const [name, setName] = useState("");
   const [email, setemail] = useState("");
-  // const [dateCreated, setdateCreated] = useState("");
-  // const [dateModified, setdateModified] = useState("");
-  const [nameError, setnameError] = useState(false);
-  const [emailError, setemailError] = useState(false);
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -32,7 +28,7 @@ const App = () => {
   }, []);
 
   const handleNameChange = (e) => {
-    setname(e.target.value);
+    setName(e.target.value);
   };
   const handleEmailChange = (e) => {
     setemail(e.target.value);
@@ -48,10 +44,10 @@ const App = () => {
     };
 
     setcontacts([...contacts, newContact]);
-    setname("");
+    setName("");
     setemail("");
 
-    // setnameError(false);
+    // setNameError(false);
     // setemailError(false);
   };
 
@@ -66,8 +62,8 @@ const App = () => {
   //   const edited = contacts.filter((contact) => {
   //     return contact.email === email || contact.name === name;
   //   });
-  //   setname(edited[0].name);
-  //   // setname(name);
+  //   setName(edited[0].name);
+  //   // setName(name);
   //   setemail(email);
   // };
   const editContact = (email, name) => {
@@ -76,7 +72,7 @@ const App = () => {
     );
   
     if (editedContact) {
-      setname(editedContact.name);
+      setName(editedContact.name);
       setemail(editedContact.email);
     }
   };
@@ -92,8 +88,7 @@ const App = () => {
           email={email}
           editContact={editContact}
           deleteContact={deleteContact}
-          nameError={nameError}
-          emailError={emailError}
+          
         />
       </Grid>
     </Grid>

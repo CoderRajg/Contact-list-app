@@ -14,7 +14,7 @@ const ContactList = ({ contacts, editContact, deleteContact }) => {
                 <Button 
                   style= {{ marginLeft : '10px', outline: 'none'}}
                   color="primary"
-                  onClick={editContact.bind(this, contact.email, contact.name)}
+                  onClick={()=>editContact( contact.email, contact.name)}
                   >
                   edit
                 </Button>
